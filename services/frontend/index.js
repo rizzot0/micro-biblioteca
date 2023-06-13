@@ -15,17 +15,17 @@ function newBook(book) {
             <div class="card-content">
                 <div class="content book" data-id="${book.id}">
                     <div class="book-meta">
-                        <p class="is-size-4">R$${book.price.toFixed(2)}</p>
-                        <p class="is-size-6">Disponível em estoque: 5</p>
+                        <p class="is-size-4">US$${book.price.toFixed(2)}</p>
+                        <p class="is-size-6">Disponible en stock: 5</p>
                         <h4 class="is-size-3 title">${book.name}</h4>
                         <p class="subtitle">${book.author}</p>
                     </div>
                     <div class="field has-addons">
                         <div class="control">
-                            <input class="input" type="text" placeholder="Digite o CEP" />
+                            <input class="input" type="text" placeholder="Digite" />
                         </div>
                         <div class="control">
-                            <a class="button button-shipping is-info" data-id="${book.id}"> Calcular Frete </a>
+                            <a class="button button-shipping is-info" data-id="${book.id}"> Calcular Flete </a>
                         </div>
                     </div>
                     <button class="button button-buy is-success is-fullwidth">Comprar</button>
@@ -44,10 +44,10 @@ function calculateShipping(id, cep) {
             throw data.statusText;
         })
         .then((data) => {
-            swal('Frete', `O frete é: R$${data.value.toFixed(2)}`, 'success');
+            swal('Flete', `El flete es: US$${data.value.toFixed(2)}`, 'exito');
         })
         .catch((err) => {
-            swal('Erro', 'Erro ao consultar frete', 'error');
+            swal('Error', 'Error al consultar flete', 'error');
             console.error(err);
         });
 }
@@ -78,13 +78,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 document.querySelectorAll('.button-buy').forEach((btn) => {
                     btn.addEventListener('click', (e) => {
-                        swal('Compra de livro', 'Sua compra foi realizada com sucesso', 'success');
+                        swal('Compra de libro', 'Su compra fue realizada con exito', 'exito');
                     });
                 });
             }
         })
         .catch((err) => {
-            swal('Erro', 'Erro ao listar os produtos', 'error');
+            swal('Error', 'Error al listar los productos', 'error');
             console.error(err);
         });
 });
